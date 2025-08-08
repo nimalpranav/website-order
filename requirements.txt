@@ -32,7 +32,7 @@ decorator==5.2.1
 deepface==0.0.93
 distlib==0.3.8
 distro==1.9.0
-dlib @ file:///C:/Users/Nimalpranav%20AP/Downloads/dlib-19.24.99-cp312-cp312-win_amd64.whl#sha256=20c62e606ca4c9961305f7be3d03990380d3e6c17f8d27798996e97a73271862
+dlib @ file:///C:/Users/Nimalpranav%20AP/Downloads/dlib#sha256=20c62e606ca4c9961305f7be3d03990380d3e6c17f8d27798996e97a73271862
 docopt==0.6.2
 face-recognition==1.3.0
 face_recognition_models==0.3.0
@@ -220,3 +220,4 @@ wrapt==1.17.2
 wsproto==1.2.0
 xlsxwriter==3.2.5
 yarl==1.19.0
+
