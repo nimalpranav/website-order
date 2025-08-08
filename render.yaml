@@ -2,8 +2,10 @@ services:
   - type: web
     name: website order
     env: python
-    buildCommand: ""
+    buildCommand: "apt-get update && apt-get install -y cmake g++ make
+      pip install -r requirements.txt"
     startCommand: gunicorn app:app
     envVars:
       - key: FLASK_ENV
         value: production
+
