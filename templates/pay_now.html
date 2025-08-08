@@ -90,13 +90,6 @@
     <div class="upi-box">
         <h2><i class="fas fa-money-bill-wave"></i> UPI Payment</h2>
 
-        <p>Send ₹50 to this Phone Number:</p>
-        <h3><code>{{ phone_number }}</code></h3>
-
-        <p>Reference UPI ID you entered: <b>{{ upi_id }}</b></p>
-
-        <p>phone number: <code>{{ phone_number }}</code></p>
-
       <form method="POST" action="/verify_payment">
     <input type="hidden" name="order_id" value="{{ order_id }}">
     
@@ -107,4 +100,5 @@
    
 
     <button type="submit">I Have Paid</button>
+
 </form>
