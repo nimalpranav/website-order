@@ -10,7 +10,7 @@ from email.mime.text import MIMEText
 import random
 ADMIN_PASSWORD = "admin123" 
 ORDERS_CSV = 'orders.csv'
-phone_number = '9500145341'
+phone_number = '85676756756'
 GMAIL_USER = 'premaavk@gmail.com'
 GMAIL_APP_PASSWORD = 'jxhw fvph jkaw wnhk'
 RECAPTCHA_SECRET = '6LdIdp0rAAAAAHCoaGZhQkNEV2CCyaHfq3nUUHf7'
@@ -277,4 +277,5 @@ def check_status():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
