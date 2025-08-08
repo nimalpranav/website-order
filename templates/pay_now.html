@@ -90,6 +90,8 @@
     <div class="upi-box">
         <h2><i class="fas fa-money-bill-wave"></i> UPI Payment</h2>
 
+        <p>Reference UPI ID you entered: <b>{{ upi_id }}</b></p>
+        
       <form method="POST" action="/verify_payment">
     <input type="hidden" name="order_id" value="{{ order_id }}">
     
@@ -102,3 +104,4 @@
     <button type="submit">I Have Paid</button>
 
 </form>
+
