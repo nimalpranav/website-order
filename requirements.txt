@@ -32,7 +32,7 @@ decorator==5.2.1
 deepface==0.0.93
 distlib==0.3.8
 distro==1.9.0
-dlib @ dlib
+dlib==19.24.2
 docopt==0.6.2
 face-recognition==1.3.0
 face_recognition_models==0.3.0
@@ -220,5 +220,6 @@ wrapt==1.17.2
 wsproto==1.2.0
 xlsxwriter==3.2.5
 yarl==1.19.0
+
 
 
