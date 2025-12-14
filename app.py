@@ -19,6 +19,33 @@ RECEIVER_UPI = "Aduto@bank"
 app = Flask(__name__)
 app.secret_key = 'why'  # Use any random string
 
+@app.before_request
+def require_browser_headers():
+    required_headers = [
+        "sec-fetch-site",
+        "sec-fetch-mode",
+        "sec-fetch-dest",
+        "accept-language"
+    ]
+
+    for h in required_headers:
+        if h not in request.headers:
+            abort(404)
+def block_cli_tools():
+    ua = request.headers.get("User-Agent", "").lower()
+
+    blocked = [
+        "curl",
+        "wget",
+        "httpie",
+        "postman",
+        "python",
+        "libwww",
+        "go-http-client"
+    ]
+
+    if any(tool in ua for tool in blocked):
+        abort(404)  # or 403
 
 def send_status_email(to_email, order_id, status, preview_link):
     sender_email = "premaavk@gmail.com"  # replace with your Gmail
@@ -277,5 +304,6 @@ def check_status():
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+
 
 
