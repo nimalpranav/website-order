@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Website Order</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <div id="loader-wrapper">
+    <div class="loader"></div>
+    </div>
+</head>
+<body>
+    <h1>Order a Website</h1>
+    <form action="/payment" method="post">
+        <label>Your Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Your Phone Number:</label><br>
+        <input type="tel" name="phone" required><br><br>
+
+        <label>Enter your Gmail:</label><br>
+        <input type="email" name="gmail" required><br><br>
+
+        <label>Your UPI ID (e.g. user@upi):</label><br>
+        <input type="text" name="upi_id" required><br><br>
+
+        <label>Type of Website Needed:</label><br>
+        <textarea name="details" required></textarea><br><br>
+
+        <button type="submit">Place Order - ₹50</button>
+        <p><a href="/status">Check Order Status</a></p>
+    </form>
+    <script>
+    window.addEventListener("load", function () {
+        document.getElementById("loader-wrapper").style.display = "none";
+    });
+    </script>
+
+</body>
+</html>

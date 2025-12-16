@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Order Status</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Order Status</h1>
+    {% if order %}
+        <p><b>Order ID:</b> {{ order['order_id'] }}</p>
+        <p><b>Name:</b> {{ order['name'] }}</p>
+        <p><b>Phone:</b> {{ order['phone'] }}</p>
+        <p><b>Status:</b> {{ order['status'] }}</p>
+        <p><b>Website Preview:</b> {{ order['preview'] or 'Not yet available' }}</p>
+    {% else %}
+        <p style="color:red;">❌ Order not found</p>
+    {% endif %}
+    <a href="/track">Back</a>
+</body>
+</html>
