@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Panel</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { padding: 10px; border: 1px solid #ccc; text-align: left; }
+        th { background-color: #f2f2f2; }
+        input[type="text"] { width: 90%; padding: 5px; }
+        select { padding: 5px; }
+        button { padding: 5px 10px; margin: 2px; cursor: pointer; }
+        .logout { float: right; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <h1>📦 Admin Panel</h1>
+    <a href="{{ url_for('admin_logout') }}" class="logout">Logout</a>
+
+    {% if orders %}
+    <form method="post" action="{{ url_for('update_orders') }}">
+        <table>
+            <tr>
+                <th>Order ID</th>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>UPI ID</th>
+                <th>Details</th>
+                <th>Status</th>
+                <th>Preview Link</th>
+                <th>Send Email</th>
+                <th>Update?</th>
+            </tr>
+            {% for order in orders %}
+            <tr>
+                <td>{{ order['Order ID'] }}</td>
+                <td>{{ order['Name'] }}</td>
+                <td>{{ order['Phone'] }}</td>
+                <td>{{ order['Gmail'] }}</td>
+                <td>{{ order['UPI ID'] }}</td>
+                <td>{{ order['Details'] }}</td>
+                <td>
+                    <select name="status_{{ order['Order ID'] }}">
+                        <option value="Pending" {% if order['Status']=='Pending' %}selected{% endif %}>Pending</option>
+                        <option value="Processing" {% if order['Status']=='Processing' %}selected{% endif %}>Processing</option>
+                        <option value="Completed" {% if order['Status']=='Completed' %}selected{% endif %}>Completed</option>
+                        <option value="Cancelled" {% if order['Status']=='Cancelled' %}selected{% endif %}>Cancelled</option>
+                    </select>
+                </td>
+                <td>
+                    <input type="text" name="preview_{{ order['Order ID'] }}" value="{{ order['PreviewLink'] }}">
+                </td>
+                <td>
+                    <button type="submit" name="send_email_id" value="{{ order['Order ID'] }}">Send Email</button>
+                </td>
+                <td>
+                    <input type="checkbox" name="update_ids" value="{{ order['Order ID'] }}">
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <button type="submit">Update Selected Orders</button>
+    </form>
+    {% else %}
+        <p>No orders yet.</p>
+    {% endif %}
+</body>
+</html>
