@@ -14,8 +14,14 @@ app.secret_key = 'why'
 # ========================= SECURITY =========================
 @app.before_request
 def protect_admin_routes():
-    if request.path.startswith("/admin") and not session.get("admin_logged_in"):
-        return redirect("/admin")
+    admin_paths_allowed = ["/admin", "/admin/logout"]
+
+    if request.path.startswith("/admin"):
+        if request.path in admin_paths_allowed:
+            return  # allow login & logout
+
+        if not session.get("admin_logged_in"):
+            return redirect("/admin")
 
 @app.after_request
 def set_security_headers(response):
